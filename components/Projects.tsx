@@ -24,7 +24,7 @@ export default function Projects() {
       title: 'AppMed (Faculté de Médecine)',
       description:
         'Plateforme web pour la gestion et la diffusion de documents/ressources, avec interface moderne et modules internes.',
-      technologies: ['Laravel', 'Livewire', 'Tailwind CSS', 'MySQL'],
+      technologies: ['Laravel', 'Livewire', 'VueJs', 'Tailwind CSS', 'MySQL'],
       links: [
         { label: 'Démo', url: 'https://demo-epirc.gasycoder.com/', type: 'live' },
         { label: 'Code', url: 'https://github.com/GasyCoder/demo1-appmed', type: 'github' },
