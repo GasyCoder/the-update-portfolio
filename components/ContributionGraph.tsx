@@ -61,11 +61,11 @@ export default function ContributionGraph() {
   if (loading) {
     return (
       <div className="mb-8">
-        <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
+        <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">
           Contribution Activity
         </h2>
-        <div className="p-4 border border-gray-200 dark:border-gray-800 rounded-lg bg-white dark:bg-gray-900 animate-pulse">
-          <div className="h-32 bg-gray-200 dark:bg-gray-800 rounded" />
+        <div className="rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
+          <div className="skeleton h-32 rounded-2xl" />
         </div>
       </div>
     );
@@ -74,35 +74,35 @@ export default function ContributionGraph() {
   return (
     <div className="mb-8">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+        <h2 className="text-lg font-semibold text-slate-900 dark:text-white">
           Contribution Activity
         </h2>
         {totalContributions > 0 && (
-          <span className="text-sm text-gray-600 dark:text-gray-400">
+          <span className="text-sm text-slate-600 dark:text-slate-400">
             {totalContributions} contributions in the last year
           </span>
         )}
       </div>
 
-      <div className="p-4 border border-gray-200 dark:border-gray-800 rounded-lg bg-white dark:bg-gray-900">
+      <div className="rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
         {contributions.length === 0 ? (
           <div className="text-center py-8">
-            <p className="text-gray-600 dark:text-gray-400 mb-2">
+            <p className="text-slate-600 dark:text-slate-400 mb-2">
               No contribution data available
             </p>
-            <p className="text-sm text-gray-500 dark:text-gray-500">
+            <p className="text-sm text-slate-500 dark:text-slate-500">
               To display your GitHub contribution graph, add a GitHub token to{' '}
-              <code className="px-1 py-0.5 bg-gray-100 dark:bg-gray-800 rounded text-xs">
+              <code className="px-1 py-0.5 bg-slate-100 dark:bg-slate-800 rounded text-xs">
                 .env.local
               </code>
             </p>
-            <p className="text-xs text-gray-400 dark:text-gray-600 mt-2">
+            <p className="text-xs text-slate-400 dark:text-slate-500 mt-2">
               See{' '}
               <a
                 href="https://github.com/settings/tokens"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline hover:text-gray-600 dark:hover:text-gray-400"
+                className="underline hover:text-slate-600 dark:hover:text-slate-300"
               >
                 GitHub Settings
               </a>{' '}
@@ -118,7 +118,7 @@ export default function ContributionGraph() {
                   {week.map((day) => (
                     <div
                       key={day.date}
-                      className={`w-3 h-3 rounded-sm ${getContributionColor(day.level)} transition-colors`}
+                      className={`h-3 w-3 rounded-sm ${getContributionColor(day.level)} transition-colors`}
                       title={`${day.count} contributions on ${new Date(day.date).toLocaleDateString()}`}
                     />
                   ))}
@@ -127,12 +127,12 @@ export default function ContributionGraph() {
             </div>
 
             {/* Legend */}
-            <div className="flex items-center gap-2 mt-4 text-xs text-gray-600 dark:text-gray-400">
+            <div className="mt-4 flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400">
               <span>Less</span>
               {[0, 1, 2, 3, 4].map((level) => (
                 <div
                   key={level}
-                  className={`w-3 h-3 rounded-sm ${getContributionColor(level)}`}
+                  className={`h-3 w-3 rounded-sm ${getContributionColor(level)}`}
                 />
               ))}
               <span>More</span>

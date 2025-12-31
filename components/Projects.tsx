@@ -16,7 +16,11 @@ interface Project {
   links?: ProjectLink[];
 }
 
-export default function Projects() {
+interface ProjectsProps {
+  isLoading?: boolean;
+}
+
+export default function Projects({ isLoading }: ProjectsProps) {
   const { t } = useLanguage();
 
   const projects: Project[] = [
@@ -134,10 +138,49 @@ export default function Projects() {
     );
   };
 
+  if (isLoading) {
+    return (
+      <section
+        id="projects"
+        className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900 md:p-10"
+      >
+        <div className="skeleton h-3 w-28 rounded-full" />
+        <div className="mt-4 space-y-2">
+          <div className="skeleton h-3 w-2/3 rounded-full" />
+          <div className="skeleton h-3 w-1/2 rounded-full" />
+        </div>
+
+        <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2">
+          {[...Array(6)].map((_, index) => (
+            <div
+              key={index}
+              className="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900"
+            >
+              <div className="skeleton h-4 w-2/3 rounded-full" />
+              <div className="mt-3 space-y-2">
+                <div className="skeleton h-3 w-full rounded-full" />
+                <div className="skeleton h-3 w-5/6 rounded-full" />
+              </div>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {[...Array(4)].map((_, chipIndex) => (
+                  <div key={chipIndex} className="skeleton h-7 w-16 rounded-full" />
+                ))}
+              </div>
+              <div className="mt-4 flex gap-2">
+                <div className="skeleton h-9 w-24 rounded-2xl" />
+                <div className="skeleton h-9 w-24 rounded-2xl" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section
       id="projects"
-      className="rounded-3xl border border-slate-200/70 bg-white/70 p-6 shadow-md shadow-slate-200/30 backdrop-blur-xl dark:border-white/5 dark:bg-white/5 md:p-10"
+      className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900 md:p-10"
     >
       <div className="flex items-start gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400 dark:text-slate-500">
         <ArrowUpRight size={14} />
@@ -155,10 +198,9 @@ export default function Projects() {
           return (
             <article
               key={index}
-              className="group relative overflow-hidden rounded-3xl border border-slate-200/70 bg-gradient-to-br from-white/95 via-white/80 to-slate-50/80 p-5 shadow-lg shadow-slate-200/25 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-200/40 dark:border-white/5 dark:from-white/10 dark:via-white/5 dark:to-slate-950"
+              className="group relative overflow-hidden rounded-xl border border-slate-200 bg-white p-5 transition hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900"
             >
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-sky-500/5 to-transparent opacity-0 transition group-hover:opacity-100" />
-              <div className="pointer-events-none absolute -right-24 -top-24 h-56 w-56 rounded-full bg-indigo-500/10 blur-3xl transition group-hover:bg-indigo-500/15 dark:bg-indigo-500/10" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-slate-50/60 to-transparent opacity-0 transition group-hover:opacity-100 dark:from-slate-800/30" />
 
               <div className="relative flex h-full flex-col gap-4">
                 <header className="flex items-start justify-between gap-3">

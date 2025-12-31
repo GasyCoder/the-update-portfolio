@@ -40,14 +40,14 @@ export default function TechStackBadges() {
 
   const Section = ({ title, badges }: { title: string; badges: TechBadge[] }) => (
     <div>
-      <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+      <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-200 mb-3">
         {title}
       </h3>
       <div className="flex flex-wrap gap-2">
         {badges.map((badge, index) => (
           <div
             key={index}
-            className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-md border text-sm font-medium ${badge.color}`}
+            className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm font-medium ${badge.color}`}
           >
             <span>{badge.icon}</span>
             <span>{badge.name}</span>
@@ -59,11 +59,11 @@ export default function TechStackBadges() {
 
   return (
     <div className="mb-8">
-      <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
+      <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">
         Tech Stack
       </h2>
 
-      <div className="p-6 border border-gray-200 dark:border-gray-800 rounded-lg bg-white dark:bg-gray-900 space-y-6">
+      <div className="rounded-xl border border-slate-200 bg-white p-6 space-y-6 dark:border-slate-800 dark:bg-slate-900">
         <Section title="Backend" badges={techStack.backend} />
         <Section title="Frontend" badges={techStack.frontend} />
         <Section title="Data & Infrastructure" badges={techStack.data} />

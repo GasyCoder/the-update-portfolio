@@ -115,7 +115,7 @@ export default function PinnedRepos() {
   if (loading) {
     return (
       <div>
-        <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+        <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
           <Github size={20} strokeWidth={1.5} />
           Pinned Repositories
         </h2>
@@ -123,11 +123,11 @@ export default function PinnedRepos() {
           {[...Array(6)].map((_, i) => (
             <div
               key={i}
-              className="p-4 border border-gray-200 dark:border-gray-800 rounded-lg bg-white dark:bg-gray-900 animate-pulse"
+              className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900"
             >
-              <div className="h-4 bg-gray-200 dark:bg-gray-800 rounded w-3/4 mb-3" />
-              <div className="h-3 bg-gray-200 dark:bg-gray-800 rounded w-full mb-2" />
-              <div className="h-3 bg-gray-200 dark:bg-gray-800 rounded w-2/3" />
+              <div className="skeleton mb-3 h-4 w-3/4 rounded-full" />
+              <div className="skeleton mb-2 h-3 w-full rounded-full" />
+              <div className="skeleton h-3 w-2/3 rounded-full" />
             </div>
           ))}
         </div>
@@ -137,28 +137,28 @@ export default function PinnedRepos() {
 
   return (
     <div>
-      <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+      <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
         <Github size={20} strokeWidth={1.5} />
         Pinned Repositories ({repositories.length})
       </h2>
 
       {repositories.length === 0 ? (
-        <div className="p-8 border border-gray-200 dark:border-gray-800 rounded-lg bg-white dark:bg-gray-900 text-center">
-          <p className="text-gray-600 dark:text-gray-400">No pinned repositories found</p>
+        <div className="rounded-lg border border-slate-200 bg-white p-8 text-center dark:border-slate-800 dark:bg-slate-900">
+          <p className="text-slate-600 dark:text-slate-400">No pinned repositories found</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {repositories.map((repo) => (
             <div
               key={repo.id}
-              className="p-4 border border-gray-200 dark:border-gray-800 rounded-lg hover:border-gray-300 dark:hover:border-gray-700 transition-colors bg-white dark:bg-gray-900"
+              className="rounded-lg border border-slate-200 bg-white p-4 transition hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-600"
             >
               <div className="flex items-start justify-between mb-2">
                 <a
                   href={repo.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:underline font-semibold text-sm"
+                  className="flex items-center gap-2 text-indigo-600 dark:text-indigo-300 hover:underline font-semibold text-sm"
                 >
                   <Github size={16} strokeWidth={1.5} />
                   <span className="truncate">{repo.name}</span>
@@ -168,7 +168,7 @@ export default function PinnedRepos() {
                     href={repo.homepage}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 flex-shrink-0"
+                    className="text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 flex-shrink-0"
                     title="Visit live site"
                   >
                     <ExternalLink size={14} strokeWidth={1.5} />
@@ -176,11 +176,11 @@ export default function PinnedRepos() {
                 )}
               </div>
 
-              <p className="text-xs text-gray-600 dark:text-gray-400 mb-3 line-clamp-2">
+              <p className="text-xs text-slate-600 dark:text-slate-400 mb-3 line-clamp-2">
                 {repo.description || 'No description provided'}
               </p>
 
-              <div className="flex items-center gap-4 text-xs text-gray-600 dark:text-gray-400">
+              <div className="flex items-center gap-4 text-xs text-slate-600 dark:text-slate-400">
                 {repo.language && (
                   <div className="flex items-center gap-1">
                     <div
