@@ -24,8 +24,8 @@ export default function Home() {
     <main className="relative min-h-screen w-full bg-slate-50 dark:bg-gray-900 transition-colors">
       {/* Background Effects */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="absolute -left-16 top-10 h-72 w-72 rounded-full bg-gradient-to-br from-sky-200/30 via-indigo-200/20 to-transparent blur-3xl dark:from-indigo-600/10 dark:via-sky-500/5" />
-        <div className="absolute right-0 top-24 h-64 w-64 rounded-full bg-gradient-to-tr from-purple-200/40 via-sky-200/20 to-transparent blur-3xl dark:from-purple-700/10 dark:via-blue-600/5" />
+        <div className="absolute -left-24 top-16 h-56 w-56 rounded-full bg-slate-200/40 blur-3xl dark:bg-slate-800/30" />
+        <div className="absolute right-0 top-24 h-48 w-48 rounded-full bg-slate-200/30 blur-3xl dark:bg-slate-800/20" />
       </div>
 
       {/* Navigation - Fixed at top */}

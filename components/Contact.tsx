@@ -59,7 +59,7 @@ export default function Contact({ isLoading }: ContactProps) {
 
       <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-3">
         <div className="md:col-span-2">
-          <div className="rounded-2xl border border-indigo-100 bg-gradient-to-br from-indigo-50 via-white to-sky-50 p-5 shadow-sm dark:border-indigo-500/20 dark:from-indigo-500/10 dark:via-slate-900 dark:to-slate-950">
+          <div className="rounded-lg border border-indigo-100 bg-indigo-50/40 p-5 dark:border-indigo-500/20 dark:bg-indigo-500/10">
             <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{t.contact.description}</h3>
             <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
               Available for collaborations, freelance missions, or full-time roles.
@@ -74,7 +74,7 @@ export default function Contact({ isLoading }: ContactProps) {
           </div>
         </div>
 
-        <div className="rounded-2xl border border-slate-200/70 bg-gradient-to-br from-white/90 to-slate-50/70 p-5 shadow-sm dark:border-white/5 dark:from-white/10 dark:to-slate-900">
+        <div className="rounded-lg border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
           <h3 className="text-sm font-semibold text-slate-800 dark:text-white">Social</h3>
           <div className="mt-3 flex flex-col gap-2">
             {socialLinks.map((social, index) => {
@@ -85,10 +85,10 @@ export default function Contact({ isLoading }: ContactProps) {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center justify-between rounded-xl border border-slate-200/60 bg-white/70 px-3 py-2 text-sm font-medium text-slate-700 transition hover:-translate-y-0.5 hover:border-indigo-200 hover:text-indigo-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-200 dark:hover:border-indigo-500/40"
+                  className="group flex items-center justify-between rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-600"
                 >
                   <div className="flex items-center gap-2">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-100 to-sky-100 text-slate-700 shadow-sm dark:from-indigo-500/20 dark:to-sky-500/10 dark:text-white">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-md border border-slate-200 bg-white text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-white">
                       <Icon size={16} />
                     </span>
                     {social.name}

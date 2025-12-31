@@ -198,10 +198,9 @@ export default function Projects({ isLoading }: ProjectsProps) {
           return (
             <article
               key={index}
-              className="group relative overflow-hidden rounded-3xl border border-slate-200/70 bg-gradient-to-br from-white/95 via-white/80 to-slate-50/80 p-5 shadow-lg shadow-slate-200/25 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-200/40 dark:border-white/5 dark:from-white/10 dark:via-white/5 dark:to-slate-950"
+              className="group relative overflow-hidden rounded-xl border border-slate-200 bg-white p-5 transition hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900"
             >
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-sky-500/5 to-transparent opacity-0 transition group-hover:opacity-100" />
-              <div className="pointer-events-none absolute -right-24 -top-24 h-56 w-56 rounded-full bg-indigo-500/10 blur-3xl transition group-hover:bg-indigo-500/15 dark:bg-indigo-500/10" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-slate-50/60 to-transparent opacity-0 transition group-hover:opacity-100 dark:from-slate-800/30" />
 
               <div className="relative flex h-full flex-col gap-4">
                 <header className="flex items-start justify-between gap-3">

@@ -117,7 +117,7 @@ export default function Skills({ isLoading }: SkillsProps) {
           </div>
         ))}
 
-        <div className="rounded-2xl border border-indigo-100 bg-gradient-to-br from-indigo-50 via-sky-50 to-white p-5 shadow-sm dark:border-indigo-500/20 dark:from-indigo-500/10 dark:via-slate-900 dark:to-slate-950">
+        <div className="rounded-lg border border-indigo-100 bg-indigo-50/40 p-5 dark:border-indigo-500/20 dark:bg-indigo-500/10">
           <h3 className="text-sm font-semibold text-indigo-700 dark:text-indigo-100">Other Technologies</h3>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">Curated tools and platforms I enjoy using on projects.</p>
           <div className="mt-3 flex flex-wrap gap-2">
