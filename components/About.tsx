@@ -13,7 +13,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="rounded-3xl border border-slate-200/70 bg-white/70 p-6 shadow-md shadow-slate-200/30 backdrop-blur-xl dark:border-white/5 dark:bg-white/5 md:p-10">
+    <section id="about" className="rounded-xl border border-slate-200/70 bg-white/70 p-6 backdrop-blur-xl dark:border-white/5 dark:bg-white/5 md:p-10">
       <div className="flex items-start gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400 dark:text-slate-500">
         <Sparkle size={14} />
         {t.about.title}
@@ -30,7 +30,7 @@ export default function About() {
             return (
               <div
                 key={idx}
-                className="flex items-center gap-3 rounded-2xl border border-slate-200/70 bg-gradient-to-br from-white/70 to-slate-50/70 px-3 py-3 shadow-sm dark:border-white/5 dark:from-white/10 dark:to-slate-900"
+                className="flex items-center gap-3 rounded-lg border border-slate-200/70 bg-gradient-to-br from-white/70 to-slate-50/70 px-3 py-3 dark:border-white/5 dark:from-white/10 dark:to-slate-900"
               >
                 <div className={`flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ${item.tone} text-indigo-600 dark:text-white`}>
                   <Icon size={18} strokeWidth={1.5} />

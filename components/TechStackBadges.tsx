@@ -47,7 +47,7 @@ export default function TechStackBadges() {
         {badges.map((badge, index) => (
           <div
             key={index}
-            className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm font-medium shadow-sm ${badge.color}`}
+            className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm font-medium ${badge.color}`}
           >
             <span>{badge.icon}</span>
             <span>{badge.name}</span>
@@ -63,7 +63,7 @@ export default function TechStackBadges() {
         Tech Stack
       </h2>
 
-      <div className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-200/30 space-y-6 dark:border-white/10 dark:bg-white/5">
+      <div className="rounded-xl border border-slate-200/70 bg-white/80 p-6 space-y-6 dark:border-white/10 dark:bg-white/5">
         <Section title="Backend" badges={techStack.backend} />
         <Section title="Frontend" badges={techStack.frontend} />
         <Section title="Data & Infrastructure" badges={techStack.data} />
