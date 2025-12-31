@@ -16,7 +16,11 @@ interface Project {
   links?: ProjectLink[];
 }
 
-export default function Projects() {
+interface ProjectsProps {
+  isLoading?: boolean;
+}
+
+export default function Projects({ isLoading }: ProjectsProps) {
   const { t } = useLanguage();
 
   const projects: Project[] = [
@@ -134,10 +138,49 @@ export default function Projects() {
     );
   };
 
+  if (isLoading) {
+    return (
+      <section
+        id="projects"
+        className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-200/30 backdrop-blur-xl dark:border-white/10 dark:bg-white/5 md:p-10"
+      >
+        <div className="skeleton h-3 w-28 rounded-full" />
+        <div className="mt-4 space-y-2">
+          <div className="skeleton h-3 w-2/3 rounded-full" />
+          <div className="skeleton h-3 w-1/2 rounded-full" />
+        </div>
+
+        <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2">
+          {[...Array(6)].map((_, index) => (
+            <div
+              key={index}
+              className="rounded-3xl border border-slate-200/60 bg-white/70 p-5 shadow-md shadow-slate-200/20 dark:border-white/10 dark:bg-white/5"
+            >
+              <div className="skeleton h-4 w-2/3 rounded-full" />
+              <div className="mt-3 space-y-2">
+                <div className="skeleton h-3 w-full rounded-full" />
+                <div className="skeleton h-3 w-5/6 rounded-full" />
+              </div>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {[...Array(4)].map((_, chipIndex) => (
+                  <div key={chipIndex} className="skeleton h-7 w-16 rounded-full" />
+                ))}
+              </div>
+              <div className="mt-4 flex gap-2">
+                <div className="skeleton h-9 w-24 rounded-2xl" />
+                <div className="skeleton h-9 w-24 rounded-2xl" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section
       id="projects"
-      className="rounded-3xl border border-slate-200/70 bg-white/70 p-6 shadow-md shadow-slate-200/30 backdrop-blur-xl dark:border-white/5 dark:bg-white/5 md:p-10"
+      className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-200/30 backdrop-blur-xl dark:border-white/10 dark:bg-white/5 md:p-10"
     >
       <div className="flex items-start gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400 dark:text-slate-500">
         <ArrowUpRight size={14} />

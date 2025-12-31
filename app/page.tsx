@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Navigation from '@/components/Navigation';
 import GitHubSidebar from '@/components/GitHubSidebar';
 import ProfileTabs from '@/components/ProfileTabs';
@@ -12,6 +12,13 @@ import Footer from '@/components/Footer';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('overview');
+  const [sectionLoading, setSectionLoading] = useState(true);
+
+  useEffect(() => {
+    setSectionLoading(true);
+    const timer = setTimeout(() => setSectionLoading(false), 700);
+    return () => clearTimeout(timer);
+  }, [activeTab]);
 
   return (
     <main className="relative min-h-screen w-full bg-slate-50 dark:bg-gray-900 transition-colors">
@@ -28,7 +35,7 @@ export default function Home() {
       <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-8 lg:flex-row">
           {/* Sidebar - Left Column */}
-          <GitHubSidebar />
+          <GitHubSidebar isLoading={sectionLoading} />
 
           {/* Main Content - Right Column */}
           <div className="min-w-0 flex-1">
@@ -37,10 +44,10 @@ export default function Home() {
 
             {/* Tab Content */}
             <div>
-              {activeTab === 'overview' && <OverviewSection />}
-              {activeTab === 'projects' && <Projects />}
-              {activeTab === 'skills' && <Skills />}
-              {activeTab === 'contact' && <Contact />}
+              {activeTab === 'overview' && <OverviewSection isLoading={sectionLoading} />}
+              {activeTab === 'projects' && <Projects isLoading={sectionLoading} />}
+              {activeTab === 'skills' && <Skills isLoading={sectionLoading} />}
+              {activeTab === 'contact' && <Contact isLoading={sectionLoading} />}
             </div>
 
             {/* Footer */}

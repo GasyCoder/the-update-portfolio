@@ -3,7 +3,11 @@
 import { useLanguage } from '@/lib/LanguageContext';
 import { Github, Linkedin, Twitter, Mail, Send, Sparkles, ArrowUpRight } from 'lucide-react';
 
-export default function Contact() {
+interface ContactProps {
+  isLoading?: boolean;
+}
+
+export default function Contact({ isLoading }: ContactProps) {
   const { t } = useLanguage();
 
   const socialLinks = [
@@ -13,8 +17,41 @@ export default function Contact() {
     { name: 'Email', icon: Mail, url: 'mailto:contact@gasycoder.dev' },
   ];
 
+  if (isLoading) {
+    return (
+      <section
+        id="contact"
+        className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-200/30 backdrop-blur-xl dark:border-white/10 dark:bg-white/5 md:p-10"
+      >
+        <div className="skeleton h-3 w-24 rounded-full" />
+
+        <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-3">
+          <div className="md:col-span-2 rounded-2xl border border-slate-200/60 bg-white/70 p-5 shadow-sm dark:border-white/10 dark:bg-white/5">
+            <div className="skeleton h-5 w-3/4 rounded-full" />
+            <div className="mt-3 space-y-2">
+              <div className="skeleton h-3 w-full rounded-full" />
+              <div className="skeleton h-3 w-4/5 rounded-full" />
+            </div>
+            <div className="mt-4 skeleton h-11 w-40 rounded-xl" />
+          </div>
+
+          <div className="rounded-2xl border border-slate-200/60 bg-white/70 p-5 shadow-sm dark:border-white/10 dark:bg-white/5">
+            <div className="skeleton h-4 w-20 rounded-full" />
+            <div className="mt-4 space-y-3">
+              {[...Array(4)].map((_, index) => (
+                <div key={index} className="skeleton h-10 w-full rounded-xl" />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-6 skeleton h-4 w-2/3 rounded-full" />
+      </section>
+    );
+  }
+
   return (
-    <section id="contact" className="rounded-3xl border border-slate-200/70 bg-white/70 p-6 shadow-md shadow-slate-200/30 backdrop-blur-xl dark:border-white/5 dark:bg-white/5 md:p-10">
+    <section id="contact" className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-200/30 backdrop-blur-xl dark:border-white/10 dark:bg-white/5 md:p-10">
       <div className="flex items-start gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400 dark:text-slate-500">
         <Sparkles size={14} />
         {t.contact.title}
