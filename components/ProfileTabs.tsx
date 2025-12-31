@@ -18,8 +18,8 @@ export default function ProfileTabs({ onTabChange, activeTab }: ProfileTabsProps
   ];
 
   return (
-    <nav className="mb-8 border-b border-slate-200 dark:border-slate-800">
-      <div className="flex flex-wrap gap-4">
+    <nav className="mb-8">
+      <div className="flex flex-wrap gap-2 rounded-2xl border border-slate-200/70 bg-white/70 p-2 shadow-sm shadow-slate-200/30 backdrop-blur-xl dark:border-white/10 dark:bg-white/5">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
@@ -28,10 +28,10 @@ export default function ProfileTabs({ onTabChange, activeTab }: ProfileTabsProps
             <button
               key={tab.id}
               onClick={() => onTabChange(tab.id)}
-              className={`flex items-center gap-2 border-b-2 px-1 pb-3 text-sm font-semibold transition ${
+              className={`flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all ${
                 isActive
-                  ? 'border-slate-900 text-slate-900 dark:border-white dark:text-white'
-                  : 'border-transparent text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200'
+                  ? 'bg-gradient-to-r from-indigo-600 to-sky-500 text-white shadow-md shadow-indigo-500/30'
+                  : 'text-slate-600 hover:bg-white/70 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-white/10'
               }`}
             >
               <Icon size={16} strokeWidth={1.5} />

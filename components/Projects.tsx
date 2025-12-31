@@ -142,7 +142,7 @@ export default function Projects({ isLoading }: ProjectsProps) {
     return (
       <section
         id="projects"
-        className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900 md:p-10"
+        className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-200/30 backdrop-blur-xl dark:border-white/10 dark:bg-white/5 md:p-10"
       >
         <div className="skeleton h-3 w-28 rounded-full" />
         <div className="mt-4 space-y-2">
@@ -154,7 +154,7 @@ export default function Projects({ isLoading }: ProjectsProps) {
           {[...Array(6)].map((_, index) => (
             <div
               key={index}
-              className="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900"
+              className="rounded-3xl border border-slate-200/60 bg-white/70 p-5 shadow-md shadow-slate-200/20 dark:border-white/10 dark:bg-white/5"
             >
               <div className="skeleton h-4 w-2/3 rounded-full" />
               <div className="mt-3 space-y-2">
@@ -180,7 +180,7 @@ export default function Projects({ isLoading }: ProjectsProps) {
   return (
     <section
       id="projects"
-      className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900 md:p-10"
+      className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-200/30 backdrop-blur-xl dark:border-white/10 dark:bg-white/5 md:p-10"
     >
       <div className="flex items-start gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400 dark:text-slate-500">
         <ArrowUpRight size={14} />

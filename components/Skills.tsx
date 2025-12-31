@@ -68,14 +68,14 @@ export default function Skills({ isLoading }: SkillsProps) {
     return (
       <section
         id="skills"
-        className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900 md:p-10"
+        className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-200/30 backdrop-blur-xl dark:border-white/10 dark:bg-white/5 md:p-10"
       >
         <div className="skeleton h-3 w-24 rounded-full" />
         <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-2">
           {[...Array(5)].map((_, index) => (
             <div
               key={index}
-              className="rounded-lg border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900"
+              className="rounded-2xl border border-slate-200/60 bg-white/70 p-5 shadow-sm dark:border-white/10 dark:bg-white/5"
             >
               <div className="skeleton h-4 w-28 rounded-full" />
               <div className="mt-3 flex flex-wrap gap-2">
@@ -91,7 +91,7 @@ export default function Skills({ isLoading }: SkillsProps) {
   }
 
   return (
-    <section id="skills" className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900 md:p-10">
+    <section id="skills" className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-200/30 backdrop-blur-xl dark:border-white/10 dark:bg-white/5 md:p-10">
       <div className="flex items-start gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400 dark:text-slate-500">
         <Sparkles size={14} />
         {t.skills.title}
@@ -101,7 +101,7 @@ export default function Skills({ isLoading }: SkillsProps) {
         {skillCategories.map((category, categoryIndex) => (
           <div
             key={categoryIndex}
-            className="rounded-lg border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900"
+            className="rounded-2xl border border-slate-200/70 bg-gradient-to-br from-white/90 to-slate-50/70 p-5 shadow-sm dark:border-white/10 dark:from-white/10 dark:to-slate-900"
           >
             <h3 className="text-sm font-semibold text-slate-800 dark:text-white">{category.title}</h3>
             <div className="mt-3 flex flex-wrap gap-2">

@@ -64,7 +64,7 @@ export default function ContributionGraph() {
         <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">
           Contribution Activity
         </h2>
-        <div className="rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
+        <div className="rounded-3xl border border-slate-200/70 bg-white/80 p-4 shadow-lg shadow-slate-200/30 dark:border-white/10 dark:bg-white/5">
           <div className="skeleton h-32 rounded-2xl" />
         </div>
       </div>
@@ -84,7 +84,7 @@ export default function ContributionGraph() {
         )}
       </div>
 
-      <div className="rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
+      <div className="rounded-3xl border border-slate-200/70 bg-white/80 p-4 shadow-lg shadow-slate-200/30 dark:border-white/10 dark:bg-white/5">
         {contributions.length === 0 ? (
           <div className="text-center py-8">
             <p className="text-slate-600 dark:text-slate-400 mb-2">
