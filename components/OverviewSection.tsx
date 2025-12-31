@@ -15,7 +15,7 @@ export default function OverviewSection({ isLoading }: OverviewSectionProps) {
   if (isLoading) {
     return (
       <div className="space-y-8">
-        <div className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-200/30 dark:border-white/10 dark:bg-white/5">
+        <div className="rounded-xl border border-slate-200/70 bg-white/80 p-6 dark:border-white/10 dark:bg-white/5">
           <div className="skeleton h-5 w-32 rounded-full" />
           <div className="mt-4 space-y-2">
             <div className="skeleton h-3 w-full rounded-full" />
@@ -31,7 +31,7 @@ export default function OverviewSection({ isLoading }: OverviewSectionProps) {
           </div>
         </div>
 
-        <div className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-200/30 dark:border-white/10 dark:bg-white/5">
+        <div className="rounded-xl border border-slate-200/70 bg-white/80 p-6 dark:border-white/10 dark:bg-white/5">
           <div className="skeleton h-5 w-32 rounded-full" />
           <div className="mt-4 grid gap-4 md:grid-cols-2">
             {[...Array(4)].map((_, index) => (
@@ -47,7 +47,7 @@ export default function OverviewSection({ isLoading }: OverviewSectionProps) {
           </div>
         </div>
 
-        <div className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-200/30 dark:border-white/10 dark:bg-white/5">
+        <div className="rounded-xl border border-slate-200/70 bg-white/80 p-6 dark:border-white/10 dark:bg-white/5">
           <div className="skeleton h-5 w-40 rounded-full" />
           <div className="mt-4 grid grid-cols-12 gap-2">
             {[...Array(72)].map((_, index) => (
@@ -56,11 +56,11 @@ export default function OverviewSection({ isLoading }: OverviewSectionProps) {
           </div>
         </div>
 
-        <div className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-200/30 dark:border-white/10 dark:bg-white/5">
+        <div className="rounded-xl border border-slate-200/70 bg-white/80 p-6 dark:border-white/10 dark:bg-white/5">
           <div className="skeleton h-5 w-44 rounded-full" />
           <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
             {[...Array(6)].map((_, index) => (
-              <div key={index} className="rounded-2xl border border-slate-200/60 bg-white/70 p-4 dark:border-white/10 dark:bg-white/5">
+              <div key={index} className="rounded-lg border border-slate-200/60 bg-white/70 p-4 dark:border-white/10 dark:bg-white/5">
                 <div className="skeleton h-4 w-3/4 rounded-full" />
                 <div className="mt-3 space-y-2">
                   <div className="skeleton h-3 w-full rounded-full" />
@@ -77,7 +77,7 @@ export default function OverviewSection({ isLoading }: OverviewSectionProps) {
   return (
     <div className="space-y-8">
       {/* About Section */}
-      <div className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-200/30 dark:border-white/10 dark:bg-white/5">
+      <div className="rounded-xl border border-slate-200/70 bg-white/80 p-6 dark:border-white/10 dark:bg-white/5">
         <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-3">
           About
         </h2>

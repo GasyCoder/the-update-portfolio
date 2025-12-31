@@ -68,14 +68,14 @@ export default function Skills({ isLoading }: SkillsProps) {
     return (
       <section
         id="skills"
-        className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-200/30 backdrop-blur-xl dark:border-white/10 dark:bg-white/5 md:p-10"
+        className="rounded-xl border border-slate-200/70 bg-white/80 p-6 backdrop-blur-xl dark:border-white/10 dark:bg-white/5 md:p-10"
       >
         <div className="skeleton h-3 w-24 rounded-full" />
         <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-2">
           {[...Array(5)].map((_, index) => (
             <div
               key={index}
-              className="rounded-2xl border border-slate-200/60 bg-white/70 p-5 shadow-sm dark:border-white/10 dark:bg-white/5"
+              className="rounded-lg border border-slate-200/60 bg-white/70 p-5 dark:border-white/10 dark:bg-white/5"
             >
               <div className="skeleton h-4 w-28 rounded-full" />
               <div className="mt-3 flex flex-wrap gap-2">
@@ -91,7 +91,7 @@ export default function Skills({ isLoading }: SkillsProps) {
   }
 
   return (
-    <section id="skills" className="rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-200/30 backdrop-blur-xl dark:border-white/10 dark:bg-white/5 md:p-10">
+    <section id="skills" className="rounded-xl border border-slate-200/70 bg-white/80 p-6 backdrop-blur-xl dark:border-white/10 dark:bg-white/5 md:p-10">
       <div className="flex items-start gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400 dark:text-slate-500">
         <Sparkles size={14} />
         {t.skills.title}
@@ -101,14 +101,14 @@ export default function Skills({ isLoading }: SkillsProps) {
         {skillCategories.map((category, categoryIndex) => (
           <div
             key={categoryIndex}
-            className="rounded-2xl border border-slate-200/70 bg-gradient-to-br from-white/90 to-slate-50/70 p-5 shadow-sm dark:border-white/10 dark:from-white/10 dark:to-slate-900"
+            className="rounded-lg border border-slate-200/70 bg-gradient-to-br from-white/90 to-slate-50/70 p-5 dark:border-white/10 dark:from-white/10 dark:to-slate-900"
           >
             <h3 className="text-sm font-semibold text-slate-800 dark:text-white">{category.title}</h3>
             <div className="mt-3 flex flex-wrap gap-2">
               {category.skills.map((skill, skillIndex) => (
                 <span
                   key={skillIndex}
-                  className="rounded-full border border-slate-200/80 bg-white/80 px-3 py-1.5 text-sm font-medium text-slate-700 shadow-sm dark:border-white/10 dark:bg-white/5 dark:text-slate-200"
+                  className="rounded-full border border-slate-200/80 bg-white/80 px-3 py-1.5 text-sm font-medium text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-200"
                 >
                   {skill.name}
                 </span>
@@ -124,7 +124,7 @@ export default function Skills({ isLoading }: SkillsProps) {
             {otherTech.map((tech, index) => (
               <span
                 key={index}
-                className="rounded-full border border-indigo-100 bg-white/80 px-3 py-1.5 text-sm font-medium text-indigo-700 shadow-sm dark:border-indigo-500/30 dark:bg-indigo-500/10 dark:text-indigo-100"
+              className="rounded-full border border-indigo-100 bg-white/80 px-3 py-1.5 text-sm font-medium text-indigo-700 dark:border-indigo-500/30 dark:bg-indigo-500/10 dark:text-indigo-100"
               >
                 {tech}
               </span>
