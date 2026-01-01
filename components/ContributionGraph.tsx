@@ -2,8 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import { fetchGitHubContributions, type GitHubContribution } from '@/lib/github';
+import { useLanguage } from '@/lib/LanguageContext';
 
 export default function ContributionGraph() {
+  const { t } = useLanguage();
   const [contributions, setContributions] = useState<GitHubContribution[]>([]);
   const [loading, setLoading] = useState(true);
   const [totalContributions, setTotalContributions] = useState(0);
@@ -62,7 +64,7 @@ export default function ContributionGraph() {
     return (
       <div className="mb-8">
         <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">
-          Contribution Activity
+          {t.contributions.title}
         </h2>
         <div className="rounded-xl border border-slate-200/70 bg-white/80 p-4 dark:border-white/10 dark:bg-white/5">
           <div className="skeleton h-32 rounded-lg" />
@@ -75,11 +77,11 @@ export default function ContributionGraph() {
     <div className="mb-8">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-semibold text-slate-900 dark:text-white">
-          Contribution Activity
+          {t.contributions.title}
         </h2>
         {totalContributions > 0 && (
           <span className="text-sm text-slate-600 dark:text-slate-400">
-            {totalContributions} contributions in the last year
+            {t.contributions.totalLabel.replace('{{count}}', totalContributions.toString())}
           </span>
         )}
       </div>
@@ -88,25 +90,25 @@ export default function ContributionGraph() {
         {contributions.length === 0 ? (
           <div className="text-center py-8">
             <p className="text-slate-600 dark:text-slate-400 mb-2">
-              No contribution data available
+              {t.contributions.emptyTitle}
             </p>
             <p className="text-sm text-slate-500 dark:text-slate-500">
-              To display your GitHub contribution graph, add a GitHub token to{' '}
+              {t.contributions.emptyDescription}{' '}
               <code className="px-1 py-0.5 bg-slate-100 dark:bg-slate-800 rounded text-xs">
                 .env.local
               </code>
             </p>
             <p className="text-xs text-slate-400 dark:text-slate-500 mt-2">
-              See{' '}
+              {t.contributions.settingsPrefix}{' '}
               <a
                 href="https://github.com/settings/tokens"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline hover:text-slate-600 dark:hover:text-slate-300"
               >
-                GitHub Settings
+                {t.contributions.settingsLink}
               </a>{' '}
-              to generate a token
+              {t.contributions.settingsSuffix}
             </p>
           </div>
         ) : (
@@ -119,7 +121,9 @@ export default function ContributionGraph() {
                     <div
                       key={day.date}
                       className={`h-3 w-3 rounded-sm ${getContributionColor(day.level)} transition-colors`}
-                      title={`${day.count} contributions on ${new Date(day.date).toLocaleDateString()}`}
+                      title={t.contributions.tooltip
+                        .replace('{{count}}', day.count.toString())
+                        .replace('{{date}}', new Date(day.date).toLocaleDateString())}
                     />
                   ))}
                 </div>
@@ -128,14 +132,14 @@ export default function ContributionGraph() {
 
             {/* Legend */}
             <div className="mt-4 flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400">
-              <span>Less</span>
+              <span>{t.contributions.less}</span>
               {[0, 1, 2, 3, 4].map((level) => (
                 <div
                   key={level}
                   className={`h-3 w-3 rounded-sm ${getContributionColor(level)}`}
                 />
               ))}
-              <span>More</span>
+              <span>{t.contributions.more}</span>
             </div>
           </>
         )}

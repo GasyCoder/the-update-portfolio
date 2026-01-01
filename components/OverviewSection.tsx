@@ -79,7 +79,7 @@ export default function OverviewSection({ isLoading }: OverviewSectionProps) {
       {/* About Section */}
       <div className="rounded-xl border border-slate-200/70 bg-white/80 p-6 dark:border-white/10 dark:bg-white/5">
         <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-3">
-          About
+          {t.overview.aboutTitle}
         </h2>
         <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
           {t.about.description}
@@ -87,10 +87,10 @@ export default function OverviewSection({ isLoading }: OverviewSectionProps) {
 
         <div className="mt-4 pt-4 border-t border-slate-200/70 dark:border-white/10">
           <h3 className="text-sm font-semibold text-slate-900 dark:text-white mb-2">
-            Automation & AI
+            {t.overview.automationTitle}
           </h3>
           <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Building n8n workflows, CLI utilities, and LLM integration patterns. Focused on creating tools that enhance developer productivity and automate repetitive tasks.
+            {t.overview.automationDescription}
           </p>
         </div>
       </div>

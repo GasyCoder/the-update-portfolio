@@ -23,8 +23,15 @@ export default function RootLayout({
                 const storedTheme = localStorage.getItem('theme');
                 const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
                 const theme = storedTheme || (prefersDark ? 'dark' : 'light');
-                document.documentElement.classList.remove('light', 'dark');
-                document.documentElement.classList.add(theme);
+                const root = document.documentElement;
+                root.classList.remove('light', 'dark');
+                root.classList.add(theme);
+                root.dataset.theme = theme;
+                root.style.colorScheme = theme;
+                if (document.body) {
+                  document.body.classList.remove('light', 'dark');
+                  document.body.classList.add(theme);
+                }
               } catch (e) {
                 document.documentElement.classList.add('dark');
               }

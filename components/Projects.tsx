@@ -23,83 +23,7 @@ interface ProjectsProps {
 export default function Projects({ isLoading }: ProjectsProps) {
   const { t } = useLanguage();
 
-  const projects: Project[] = [
-    {
-      title: 'AppMed (Faculté de Médecine)',
-      description:
-        'Plateforme web pour la gestion et la diffusion de documents/ressources, avec interface moderne et modules internes.',
-      technologies: ['Laravel', 'Livewire', 'VueJs', 'Tailwind CSS', 'MySQL'],
-      links: [
-        { label: 'Démo', url: 'https://demo-epirc.gasycoder.com/', type: 'live' },
-        { label: 'Code', url: 'https://github.com/GasyCoder/demo1-appmed', type: 'github' },
-      ],
-    },
-    {
-      title: 'RSS Blog (Backend + Frontend)',
-      description:
-        'Mini-blog alimenté par des flux RSS : backend Python pour l’agrégation/normalisation des articles, frontend Next.js pour l’affichage avec routes SEO-friendly.',
-      technologies: ['Python', 'FastAPI', 'Next.js', 'TypeScript', 'RSS'],
-      links: [
-        { label: 'Code (Frontend)', url: 'https://github.com/GasyCoder/rss-blog-frontend', type: 'github' },
-        { label: 'Code (Backend)', url: 'https://github.com/GasyCoder/rss-blog-backend', type: 'github' },
-        { label: 'Démo', url: '#', type: 'live' },
-      ],
-    },
-    {
-      title: 'CHU Mahavoky Sud',
-      description: 'Application web pour la digitalisation de processus et contenus au sein du CHU.',
-      technologies: ['Laravel', 'Blade', 'MySQL'],
-      links: [
-        { label: 'Démo', url: '#', type: 'live' },
-        { label: 'Code', url: '#', type: 'github' },
-      ],
-    },
-    {
-      title: 'EDGVM',
-      description: 'Site/plateforme institutionnelle : contenus dynamiques, événements, actualités, pages publiques.',
-      technologies: ['Laravel', 'Vite', 'MySQL'],
-      links: [
-        { label: 'Démo', url: '#', type: 'live' },
-        { label: 'Code', url: '#', type: 'github' },
-      ],
-    },
-    {
-      title: 'E-Pirata',
-      description: 'Plateforme orientée produit, avec logique backend et APIs selon les besoins.',
-      technologies: ['Laravel', 'API', 'MySQL'],
-      links: [
-        { label: 'Démo', url: '#', type: 'live' },
-        { label: 'Code', url: '#', type: 'github' },
-      ],
-    },
-    {
-      title: 'Gestion Tina',
-      description: 'Application de gestion interne (CRUD métier) avec une interface simple et efficace.',
-      technologies: ['Laravel', 'Livewire', 'MySQL'],
-      links: [
-        { label: 'Démo', url: '#', type: 'live' },
-        { label: 'Code', url: '#', type: 'github' },
-      ],
-    },
-    {
-      title: 'Labo CTB Nosy Be',
-      description: 'Plateforme de gestion pour laboratoire : documents, suivi, organisation des workflows.',
-      technologies: ['Laravel', 'Livewire', 'MySQL'],
-      links: [
-        { label: 'Démo', url: '#', type: 'live' },
-        { label: 'Code', url: '#', type: 'github' },
-      ],
-    },
-    {
-      title: 'ProdCatTest',
-      description: 'Environnement de test/démo pour valider modules, UI et fonctionnalités avant intégration.',
-      technologies: ['Laravel', 'Vite', 'MySQL'],
-      links: [
-        { label: 'Démo', url: '#', type: 'live' },
-        { label: 'Code', url: '#', type: 'github' },
-      ],
-    },
-  ];
+  const projects: Project[] = t.projects.items;
 
   const isRealLink = (url?: string) => !!url && url !== '#';
 
@@ -130,7 +54,7 @@ export default function Projects({ isLoading }: ProjectsProps) {
         target={!disabled ? '_blank' : undefined}
         rel={!disabled ? 'noopener noreferrer' : undefined}
         className={cls}
-        title={link.type === 'live' ? 'Voir la démo' : 'Voir le code'}
+        title={link.type === 'live' ? t.projects.linkTooltips.live : t.projects.linkTooltips.code}
       >
         <Icon size={16} />
         {link.label}
@@ -188,7 +112,7 @@ export default function Projects({ isLoading }: ProjectsProps) {
       </div>
 
       <div className="mt-2 max-w-2xl text-sm text-slate-500 dark:text-slate-400">
-        Sélection de projets livrés, avec versions démo lorsque disponibles.
+        {t.projects.intro}
       </div>
 
       <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2">
@@ -211,13 +135,13 @@ export default function Projects({ isLoading }: ProjectsProps) {
 
                     <div className="mt-2 flex flex-wrap items-center gap-2">
                       <span className="inline-flex items-center rounded-full border border-slate-200/70 bg-white/60 px-2.5 py-1 text-[11px] font-semibold text-slate-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-300">
-                        Projets réels
+                        {t.projects.badgeReal}
                       </span>
 
                       {hasDemo && (
                         <span className="inline-flex items-center gap-1 rounded-full border border-emerald-200/70 bg-emerald-50 px-2.5 py-1 text-[11px] font-semibold text-emerald-700 dark:border-emerald-500/20 dark:bg-emerald-500/10 dark:text-emerald-100">
                           <Sparkles size={12} />
-                          Demo
+                          {t.projects.badgeDemo}
                         </span>
                       )}
                     </div>
@@ -246,7 +170,7 @@ export default function Projects({ isLoading }: ProjectsProps) {
 
                   {project.links?.some((l) => !isRealLink(l.url)) && (
                     <span className="ml-auto inline-flex items-center rounded-lg border border-slate-200/70 bg-white/50 px-3 py-2 text-xs font-semibold text-slate-500 dark:border-white/10 dark:bg-white/5 dark:text-slate-400">
-                      Liens privés / bientôt
+                      {t.projects.linksPrivate}
                     </span>
                   )}
                 </footer>

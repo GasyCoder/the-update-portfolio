@@ -2,12 +2,15 @@
 
 import Image from 'next/image';
 import { MapPin, Mail, Linkedin, Twitter, Github } from 'lucide-react';
+import { useLanguage } from '@/lib/LanguageContext';
 
 interface GitHubSidebarProps {
   isLoading?: boolean;
 }
 
 export default function GitHubSidebar({ isLoading }: GitHubSidebarProps) {
+  const { t } = useLanguage();
+
   if (isLoading) {
     return (
       <aside className="w-full lg:w-72 flex-shrink-0">
@@ -52,7 +55,7 @@ export default function GitHubSidebar({ isLoading }: GitHubSidebarProps) {
           <div className="relative">
             <Image
               src="/profile.jpeg"
-              alt="GasyCoder Profile"
+              alt={t.sidebar.profileAlt}
               width={180}
               height={180}
               className="aspect-square rounded-full border-4 border-white/80 object-cover ring-1 ring-slate-200/80 transition-all duration-200 dark:border-slate-900/80 dark:ring-white/10"
@@ -70,7 +73,7 @@ export default function GitHubSidebar({ isLoading }: GitHubSidebarProps) {
             BEZARA Florent
           </h1>
           <p className="text-sm text-slate-600 dark:text-slate-300 font-medium transition-colors duration-200">
-            Backend Developer | Fullstack TALL | Build AI Tools | NodeJs
+            {t.sidebar.role}
           </p>
         </div>
 
@@ -80,13 +83,13 @@ export default function GitHubSidebar({ isLoading }: GitHubSidebarProps) {
         {/* Location */}
         <div className="flex items-center justify-center gap-2 text-sm text-slate-600 dark:text-slate-300 transition-colors duration-200">
           <MapPin size={16} strokeWidth={1.5} className="text-slate-500 dark:text-slate-400" />
-          <span>Mahajanga, Madagascar</span>
+          <span>{t.sidebar.location}</span>
         </div>
 
         {/* Status Badge */}
         <div className="flex items-center  justify-center items-center gap-2 rounded-full border border-emerald-200/70 bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-700 transition-all duration-200 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-100">
           <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-          <span>Open to opportunities</span>
+          <span>{t.sidebar.availability}</span>
         </div>
 
         {/* Divider */}
@@ -95,7 +98,7 @@ export default function GitHubSidebar({ isLoading }: GitHubSidebarProps) {
         {/* Social Links */}
         <div className="space-y-2">
           <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-2 transition-colors duration-200">
-            Connect
+            {t.sidebar.connect}
           </h3>
           <div className="space-y-2">
             <a
@@ -121,7 +124,7 @@ export default function GitHubSidebar({ isLoading }: GitHubSidebarProps) {
               className="flex items-center gap-2 rounded-lg border border-slate-200/60 bg-white/80 px-3 py-2 text-xs font-medium text-slate-700 transition-all hover:-translate-y-0.5 hover:border-indigo-200 hover:text-indigo-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-200 dark:hover:border-indigo-500/40"
             >
               <Linkedin size={14} strokeWidth={1.5} className="flex-shrink-0 text-slate-500" />
-              <span>LinkedIn Profile</span>
+              <span>{t.sidebar.linkedinLabel}</span>
             </a>
             <a
               href="https://x.com/Florent_bezara"
@@ -130,7 +133,7 @@ export default function GitHubSidebar({ isLoading }: GitHubSidebarProps) {
               className="flex items-center gap-2 rounded-lg border border-slate-200/60 bg-white/80 px-3 py-2 text-xs font-medium text-slate-700 transition-all hover:-translate-y-0.5 hover:border-indigo-200 hover:text-indigo-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-200 dark:hover:border-indigo-500/40"
             >
               <Twitter size={14} strokeWidth={1.5} className="flex-shrink-0 text-slate-500" />
-              <span>Twitter / X</span>
+              <span>{t.sidebar.twitterLabel}</span>
             </a>
           </div>
         </div>
@@ -141,7 +144,7 @@ export default function GitHubSidebar({ isLoading }: GitHubSidebarProps) {
         {/* Achievements */}
         <div>
           <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-3 transition-colors duration-200">
-            Achievements
+            {t.sidebar.achievements}
           </h3>
           <div className="flex gap-2 justify-center">
             <div className="group relative">
@@ -149,7 +152,7 @@ export default function GitHubSidebar({ isLoading }: GitHubSidebarProps) {
                 🚀
               </div>
               <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-slate-900/90 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
-                Early Adopter
+                {t.sidebar.achievementsLabels.earlyAdopter}
               </div>
             </div>
             <div className="group relative">
@@ -157,7 +160,7 @@ export default function GitHubSidebar({ isLoading }: GitHubSidebarProps) {
                 ⭐
               </div>
               <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-slate-900/90 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
-                Star Creator
+                {t.sidebar.achievementsLabels.starCreator}
               </div>
             </div>
             <div className="group relative">
@@ -165,7 +168,7 @@ export default function GitHubSidebar({ isLoading }: GitHubSidebarProps) {
                 🔥
               </div>
               <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-slate-900/90 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
-                Hot Streak
+                {t.sidebar.achievementsLabels.hotStreak}
               </div>
             </div>
           </div>

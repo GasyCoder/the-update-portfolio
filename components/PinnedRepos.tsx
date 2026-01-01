@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { ExternalLink, Github, Star, GitFork } from 'lucide-react';
 import { fetchPinnedRepositories, getLanguageColor, type GitHubRepo } from '@/lib/github';
+import { useLanguage } from '@/lib/LanguageContext';
 
 interface TechBadge {
   name: string;
@@ -94,6 +95,7 @@ const getTechBadges = (repo: GitHubRepo): TechBadge[] => {
 };
 
 export default function PinnedRepos() {
+  const { t } = useLanguage();
   const [repositories, setRepositories] = useState<GitHubRepo[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -117,7 +119,7 @@ export default function PinnedRepos() {
       <div>
         <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
           <Github size={20} strokeWidth={1.5} />
-          Pinned Repositories
+          {t.pinnedRepos.title}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {[...Array(6)].map((_, i) => (
@@ -139,12 +141,12 @@ export default function PinnedRepos() {
     <div>
       <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
         <Github size={20} strokeWidth={1.5} />
-        Pinned Repositories ({repositories.length})
+        {t.pinnedRepos.titleWithCount.replace('{{count}}', repositories.length.toString())}
       </h2>
 
       {repositories.length === 0 ? (
         <div className="rounded-lg border border-slate-200/60 bg-white/80 p-8 text-center dark:border-white/10 dark:bg-white/5">
-          <p className="text-slate-600 dark:text-slate-400">No pinned repositories found</p>
+          <p className="text-slate-600 dark:text-slate-400">{t.pinnedRepos.empty}</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -169,7 +171,7 @@ export default function PinnedRepos() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 flex-shrink-0"
-                    title="Visit live site"
+                    title={t.pinnedRepos.visitLiveSite}
                   >
                     <ExternalLink size={14} strokeWidth={1.5} />
                   </a>
@@ -177,7 +179,7 @@ export default function PinnedRepos() {
               </div>
 
               <p className="text-xs text-slate-600 dark:text-slate-400 mb-3 line-clamp-2">
-                {repo.description || 'No description provided'}
+                {repo.description || t.pinnedRepos.noDescription}
               </p>
 
               <div className="flex items-center gap-4 text-xs text-slate-600 dark:text-slate-400">
