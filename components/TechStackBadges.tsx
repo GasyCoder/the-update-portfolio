@@ -60,14 +60,14 @@ export default function TechStackBadges() {
   return (
     <div className="mb-8">
       <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">
-        Tech Stack
+        {t.techStack.title}
       </h2>
 
       <div className="rounded-xl border border-slate-200/70 bg-white/80 p-6 space-y-6 dark:border-white/10 dark:bg-white/5">
-        <Section title="Backend" badges={techStack.backend} />
-        <Section title="Frontend" badges={techStack.frontend} />
-        <Section title="Data & Infrastructure" badges={techStack.data} />
-        <Section title="Tools & Workflow" badges={techStack.tools} />
+        <Section title={t.techStack.backend} badges={techStack.backend} />
+        <Section title={t.techStack.frontend} badges={techStack.frontend} />
+        <Section title={t.techStack.data} badges={techStack.data} />
+        <Section title={t.techStack.tools} badges={techStack.tools} />
       </div>
     </div>
   );

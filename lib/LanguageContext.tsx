@@ -18,10 +18,21 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     setMounted(true);
     const savedLang = localStorage.getItem('language') as Language | null;
-    if (savedLang && (savedLang === 'fr' || savedLang === 'en')) {
-      setLanguageState(savedLang);
+    const storedLang = savedLang === 'fr' || savedLang === 'en' ? savedLang : null;
+    if (storedLang) {
+      setLanguageState(storedLang);
+      return;
     }
+
+    const browserLang = navigator.language?.toLowerCase() ?? '';
+    setLanguageState(browserLang.startsWith('fr') ? 'fr' : 'en');
   }, []);
+
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = language;
+    }
+  }, [language]);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);

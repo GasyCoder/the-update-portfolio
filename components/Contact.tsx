@@ -24,7 +24,7 @@ export default function Contact({ isLoading }: ContactProps) {
   const whatsappRaw = '+261349345251';
   const whatsappDigits = whatsappRaw.replace(/\D/g, ''); // 261349345251
   const whatsappUrl = `https://wa.me/${whatsappDigits}?text=${encodeURIComponent(
-    "Hello Florent, I saw your portfolio and I'd like to discuss a project."
+    t.contact.whatsappMessage
   )}`;
 
   const socialLinks = [
@@ -90,7 +90,7 @@ export default function Contact({ isLoading }: ContactProps) {
             </h3>
 
             <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
-              Available for collaborations, freelance missions, or full-time roles.
+              {t.contact.availability}
             </p>
 
             <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -109,10 +109,10 @@ export default function Contact({ isLoading }: ContactProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-800 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/30 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:hover:border-slate-600"
-                aria-label="Contact via WhatsApp"
+                aria-label={t.contact.whatsappAria}
               >
                 <MessageCircle size={16} />
-                WhatsApp
+                {t.contact.whatsappLabel}
                 <ArrowUpRight className="h-4 w-4 text-slate-400 dark:text-slate-500" />
               </a>
             </div>
@@ -122,14 +122,14 @@ export default function Contact({ isLoading }: ContactProps) {
                 <Phone className="h-4 w-4" />
                 {whatsappRaw}
               </span>
-              <span className="text-slate-400 dark:text-slate-500">Response time: 24–48h</span>
+              <span className="text-slate-400 dark:text-slate-500">{t.contact.responseTime}</span>
             </div>
           </div>
         </div>
 
         {/* Social card */}
         <div className="rounded-lg border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
-          <h3 className="text-sm font-semibold text-slate-800 dark:text-white">Social</h3>
+          <h3 className="text-sm font-semibold text-slate-800 dark:text-white">{t.contact.socialTitle}</h3>
 
           <div className="mt-3 flex flex-col gap-2">
             {socialLinks.map((social, index) => {
@@ -159,7 +159,7 @@ export default function Contact({ isLoading }: ContactProps) {
       </div>
 
       <p className="mt-6 text-[15px] text-slate-600 dark:text-slate-400">
-        Available for projects •{' '}
+        {t.contact.footerAvailability} •{' '}
         <a
           href="mailto:contact@gasycoder.com"
           className="text-slate-900 underline decoration-indigo-300 underline-offset-4 dark:text-white"
@@ -173,7 +173,7 @@ export default function Contact({ isLoading }: ContactProps) {
           rel="noopener noreferrer"
           className="text-slate-900 underline decoration-emerald-300 underline-offset-4 dark:text-white"
         >
-          WhatsApp
+          {t.contact.whatsappLabel}
         </a>
       </p>
     </section>

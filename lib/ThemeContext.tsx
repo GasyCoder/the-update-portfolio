@@ -19,8 +19,15 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       return;
     }
     const root = window.document.documentElement;
+    const body = window.document.body;
     root.classList.remove('light', 'dark');
     root.classList.add(nextTheme);
+    root.dataset.theme = nextTheme;
+    root.style.colorScheme = nextTheme;
+    if (body) {
+      body.classList.remove('light', 'dark');
+      body.classList.add(nextTheme);
+    }
     localStorage.setItem('theme', nextTheme);
   };
 
