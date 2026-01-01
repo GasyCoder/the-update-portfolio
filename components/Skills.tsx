@@ -3,13 +3,9 @@
 import { useLanguage } from '@/lib/LanguageContext';
 import { Sparkles } from 'lucide-react';
 
-interface Skill {
-  name: string;
-}
-
 interface SkillCategory {
   title: string;
-  skills: Skill[];
+  skills: string[];
 }
 
 interface SkillsProps {
@@ -19,50 +15,9 @@ interface SkillsProps {
 export default function Skills({ isLoading }: SkillsProps) {
   const { t } = useLanguage();
 
-  const skillCategories: SkillCategory[] = [
-    {
-      title: t.skills.frontend,
-      skills: [
-        { name: 'React' },
-        { name: 'Next.js' },
-        { name: 'TypeScript' },
-        { name: 'Tailwind CSS' },
-        { name: 'Vue.js' },
-      ],
-    },
-    {
-      title: t.skills.backend,
-      skills: [
-        { name: 'Node.js' },
-        { name: 'Express' },
-        { name: 'MongoDB' },
-        { name: 'PostgreSQL' },
-        { name: 'GraphQL' },
-      ],
-    },
-    {
-      title: t.skills.tools,
-      skills: [
-        { name: 'Git' },
-        { name: 'Docker' },
-        { name: 'VS Code' },
-        { name: 'Figma' },
-        { name: 'Postman' },
-      ],
-    },
-    {
-      title: t.skills.other,
-      skills: [
-        { name: 'REST API' },
-        { name: 'Responsive Design' },
-        { name: 'UI/UX' },
-        { name: 'Agile/Scrum' },
-        { name: 'Testing' },
-      ],
-    },
-  ];
+  const skillCategories: SkillCategory[] = t.skills.categories;
 
-  const otherTech = ['HTML5', 'CSS3', 'JavaScript', 'Sass', 'Redux', 'Next Auth', 'Prisma', 'Jest', 'Cypress', 'Webpack', 'Vite', 'NPM', 'Yarn'];
+  const otherTech = t.skills.otherTech;
 
   if (isLoading) {
     return (
@@ -110,7 +65,7 @@ export default function Skills({ isLoading }: SkillsProps) {
                   key={skillIndex}
                   className="rounded-full border border-slate-200/80 bg-white/80 px-3 py-1.5 text-sm font-medium text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-200"
                 >
-                  {skill.name}
+                  {skill}
                 </span>
               ))}
             </div>
@@ -118,13 +73,13 @@ export default function Skills({ isLoading }: SkillsProps) {
         ))}
 
         <div className="rounded-lg border border-indigo-100 bg-indigo-50/40 p-5 dark:border-indigo-500/20 dark:bg-indigo-500/10">
-          <h3 className="text-sm font-semibold text-indigo-700 dark:text-indigo-100">Other Technologies</h3>
-          <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">Curated tools and platforms I enjoy using on projects.</p>
+          <h3 className="text-sm font-semibold text-indigo-700 dark:text-indigo-100">{t.skills.otherTitle}</h3>
+          <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{t.skills.otherDescription}</p>
           <div className="mt-3 flex flex-wrap gap-2">
             {otherTech.map((tech, index) => (
               <span
                 key={index}
-              className="rounded-full border border-indigo-100 bg-white/80 px-3 py-1.5 text-sm font-medium text-indigo-700 dark:border-indigo-500/30 dark:bg-indigo-500/10 dark:text-indigo-100"
+                className="rounded-full border border-indigo-100 bg-white/80 px-3 py-1.5 text-sm font-medium text-indigo-700 dark:border-indigo-500/30 dark:bg-indigo-500/10 dark:text-indigo-100"
               >
                 {tech}
               </span>

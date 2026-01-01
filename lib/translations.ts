@@ -8,6 +8,16 @@ export const translations = {
       projects: 'Projets',
       skills: 'Compétences',
       contact: 'Contact',
+      founder: 'Fondateur de GasyCoder',
+      developerLabel: 'Développeur',
+      themeToggleLabel: 'Basculer le thème',
+      languageToggleLabel: 'Changer la langue',
+    },
+    tabs: {
+      overview: 'Aperçu',
+      projects: 'Projets',
+      skills: 'Compétences',
+      contact: 'Contact',
     },
     hero: {
       greeting: 'Bonjour, je suis',
@@ -18,15 +28,148 @@ export const translations = {
     },
     about: {
       title: 'À propos de moi',
-      description: 'Passionné par le développement web et les technologies modernes, je crée des solutions innovantes qui allient esthétique et performance.',
-      experience: 'Années d\'expérience',
+      description:
+        'Passionné par le développement web et les technologies modernes, je crée des solutions innovantes qui allient esthétique et performance.',
+      experience: "Années d'expérience",
       projectsCompleted: 'Projets réalisés',
       technologies: 'Technologies maîtrisées',
     },
+    overview: {
+      aboutTitle: 'À propos',
+      automationTitle: 'Automatisation & IA',
+      automationDescription:
+        'Création de workflows n8n, d’outils CLI et d’intégrations LLM. Objectif : automatiser les tâches répétitives et améliorer la productivité des équipes.',
+    },
+    techStack: {
+      title: 'Stack technique',
+      backend: 'Backend',
+      frontend: 'Frontend',
+      data: 'Données & infrastructure',
+      tools: 'Outils & workflow',
+    },
+    contributions: {
+      title: 'Activité des contributions',
+      totalLabel: '{{count}} contributions cette année',
+      emptyTitle: 'Aucune donnée de contribution disponible',
+      emptyDescription:
+        'Pour afficher votre graphique GitHub, ajoutez un token GitHub dans',
+      settingsPrefix: 'Voir',
+      settingsLink: 'Paramètres GitHub',
+      settingsSuffix: 'pour générer un token',
+      less: 'Moins',
+      more: 'Plus',
+      tooltip: '{{count}} contributions le {{date}}',
+    },
+    pinnedRepos: {
+      title: 'Dépôts épinglés',
+      titleWithCount: 'Dépôts épinglés ({{count}})',
+      empty: 'Aucun dépôt épinglé trouvé',
+      visitLiveSite: 'Visiter le site',
+      noDescription: 'Aucune description disponible',
+    },
+    sidebar: {
+      profileAlt: 'Photo de profil GasyCoder',
+      role: 'Développeur backend | Fullstack TALL | Outils IA | Node.js',
+      location: 'Mahajanga, Madagascar',
+      availability: 'Ouvert aux opportunités',
+      connect: 'Connexion',
+      linkedinLabel: 'Profil LinkedIn',
+      twitterLabel: 'Twitter / X',
+      achievements: 'Réalisations',
+      achievementsLabels: {
+        earlyAdopter: 'Adopteur précoce',
+        starCreator: 'Créateur star',
+        hotStreak: 'Série active',
+      },
+    },
     projects: {
       title: 'Mes Projets',
-      viewProject: 'Voir le projet',
-      viewCode: 'Voir le code',
+      intro: 'Sélection de projets livrés, avec versions démo lorsque disponibles.',
+      badgeReal: 'Projets réels',
+      badgeDemo: 'Démo',
+      linksPrivate: 'Liens privés / bientôt',
+      linkTooltips: {
+        live: 'Voir la démo',
+        code: 'Voir le code',
+      },
+      items: [
+        {
+          title: 'AppMed (Faculté de Médecine)',
+          description:
+            'Plateforme web pour la gestion et la diffusion de documents/ressources, avec interface moderne et modules internes.',
+          technologies: ['Laravel', 'Livewire', 'VueJs', 'Tailwind CSS', 'MySQL'],
+          links: [
+            { label: 'Démo', url: 'https://demo-epirc.gasycoder.com/', type: 'live' },
+            { label: 'Code', url: 'https://github.com/GasyCoder/demo1-appmed', type: 'github' },
+          ],
+        },
+        {
+          title: 'RSS Blog (Backend + Frontend)',
+          description:
+            'Mini-blog alimenté par des flux RSS : backend Python pour l’agrégation/normalisation des articles, frontend Next.js pour l’affichage avec routes SEO-friendly.',
+          technologies: ['Python', 'FastAPI', 'Next.js', 'TypeScript', 'RSS'],
+          links: [
+            { label: 'Code (Frontend)', url: 'https://github.com/GasyCoder/rss-blog-frontend', type: 'github' },
+            { label: 'Code (Backend)', url: 'https://github.com/GasyCoder/rss-blog-backend', type: 'github' },
+            { label: 'Démo', url: '#', type: 'live' },
+          ],
+        },
+        {
+          title: 'CHU Mahavoky Sud',
+          description: 'Application web pour la digitalisation de processus et contenus au sein du CHU.',
+          technologies: ['Laravel', 'Blade', 'MySQL'],
+          links: [
+            { label: 'Démo', url: '#', type: 'live' },
+            { label: 'Code', url: '#', type: 'github' },
+          ],
+        },
+        {
+          title: 'EDGVM',
+          description:
+            'Site/plateforme institutionnelle : contenus dynamiques, événements, actualités, pages publiques.',
+          technologies: ['Laravel', 'Vite', 'MySQL'],
+          links: [
+            { label: 'Démo', url: '#', type: 'live' },
+            { label: 'Code', url: '#', type: 'github' },
+          ],
+        },
+        {
+          title: 'E-Pirata',
+          description: 'Plateforme orientée produit, avec logique backend et APIs selon les besoins.',
+          technologies: ['Laravel', 'API', 'MySQL'],
+          links: [
+            { label: 'Démo', url: '#', type: 'live' },
+            { label: 'Code', url: '#', type: 'github' },
+          ],
+        },
+        {
+          title: 'Gestion Tina',
+          description: 'Application de gestion interne (CRUD métier) avec une interface simple et efficace.',
+          technologies: ['Laravel', 'Livewire', 'MySQL'],
+          links: [
+            { label: 'Démo', url: '#', type: 'live' },
+            { label: 'Code', url: '#', type: 'github' },
+          ],
+        },
+        {
+          title: 'Labo CTB Nosy Be',
+          description: 'Plateforme de gestion pour laboratoire : documents, suivi, organisation des workflows.',
+          technologies: ['Laravel', 'Livewire', 'MySQL'],
+          links: [
+            { label: 'Démo', url: '#', type: 'live' },
+            { label: 'Code', url: '#', type: 'github' },
+          ],
+        },
+        {
+          title: 'ProdCatTest',
+          description: 'Environnement de test/démo pour valider modules, UI et fonctionnalités avant intégration.',
+          technologies: ['Laravel', 'Vite', 'MySQL'],
+          links: [
+            { label: 'Démo', url: '#', type: 'live' },
+            { label: 'Code', url: '#', type: 'github' },
+          ],
+        },
+      ],
     },
     skills: {
       title: 'Compétences & Technologies',
@@ -34,15 +177,58 @@ export const translations = {
       backend: 'Backend',
       tools: 'Outils',
       other: 'Autres',
+      otherTitle: 'Autres technologies',
+      otherDescription: 'Outils et plateformes que j’utilise régulièrement dans mes projets.',
+      categories: [
+        {
+          title: 'Frontend',
+          skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Vue.js'],
+        },
+        {
+          title: 'Backend',
+          skills: ['Node.js', 'Express', 'MongoDB', 'PostgreSQL', 'GraphQL'],
+        },
+        {
+          title: 'Outils',
+          skills: ['Git', 'Docker', 'VS Code', 'Figma', 'Postman'],
+        },
+        {
+          title: 'Autres',
+          skills: ['API REST', 'Design responsive', 'UI/UX', 'Agile/Scrum', 'Tests'],
+        },
+      ],
+      otherTech: [
+        'HTML5',
+        'CSS3',
+        'JavaScript',
+        'Sass',
+        'Redux',
+        'Next Auth',
+        'Prisma',
+        'Jest',
+        'Cypress',
+        'Webpack',
+        'Vite',
+        'NPM',
+        'Yarn',
+      ],
     },
     contact: {
       title: 'Contactez-moi',
-      description: 'N\'hésitez pas à me contacter pour discuter de vos projets',
+      description: 'Discutons de vos projets',
+      availability: 'Disponible pour des collaborations, missions freelance ou postes full-time.',
       name: 'Nom',
       email: 'Email',
       message: 'Message',
       send: 'Envoyer',
       sending: 'Envoi en cours...',
+      whatsappLabel: 'WhatsApp',
+      whatsappAria: 'Contacter via WhatsApp',
+      socialTitle: 'Réseaux',
+      responseTime: 'Temps de réponse : 24–48h',
+      footerAvailability: 'Disponible pour des projets',
+      whatsappMessage:
+        "Bonjour Florent, j'ai vu votre portfolio et j'aimerais discuter d'un projet.",
     },
     footer: {
       rights: 'Tous droits réservés',
@@ -56,6 +242,16 @@ export const translations = {
       projects: 'Projects',
       skills: 'Skills',
       contact: 'Contact',
+      founder: 'Founder of GasyCoder',
+      developerLabel: 'Developer',
+      themeToggleLabel: 'Toggle theme',
+      languageToggleLabel: 'Change language',
+    },
+    tabs: {
+      overview: 'Overview',
+      projects: 'Projects',
+      skills: 'Skills',
+      contact: 'Contact',
     },
     hero: {
       greeting: 'Hello, I am',
@@ -66,15 +262,147 @@ export const translations = {
     },
     about: {
       title: 'About Me',
-      description: 'Passionate about web development and modern technologies, I create innovative solutions that combine aesthetics and performance.',
+      description:
+        'Passionate about web development and modern technologies, I create innovative solutions that combine aesthetics and performance.',
       experience: 'Years of experience',
       projectsCompleted: 'Projects completed',
       technologies: 'Technologies mastered',
     },
+    overview: {
+      aboutTitle: 'About',
+      automationTitle: 'Automation & AI',
+      automationDescription:
+        'Building n8n workflows, CLI utilities, and LLM integrations. Focused on automating repetitive tasks and boosting team productivity.',
+    },
+    techStack: {
+      title: 'Tech Stack',
+      backend: 'Backend',
+      frontend: 'Frontend',
+      data: 'Data & Infrastructure',
+      tools: 'Tools & Workflow',
+    },
+    contributions: {
+      title: 'Contribution Activity',
+      totalLabel: '{{count}} contributions in the last year',
+      emptyTitle: 'No contribution data available',
+      emptyDescription: 'To display your GitHub contribution graph, add a GitHub token to',
+      settingsPrefix: 'See',
+      settingsLink: 'GitHub Settings',
+      settingsSuffix: 'to generate a token',
+      less: 'Less',
+      more: 'More',
+      tooltip: '{{count}} contributions on {{date}}',
+    },
+    pinnedRepos: {
+      title: 'Pinned Repositories',
+      titleWithCount: 'Pinned Repositories ({{count}})',
+      empty: 'No pinned repositories found',
+      visitLiveSite: 'Visit live site',
+      noDescription: 'No description provided',
+    },
+    sidebar: {
+      profileAlt: 'GasyCoder profile photo',
+      role: 'Backend Developer | Fullstack TALL | Build AI Tools | Node.js',
+      location: 'Mahajanga, Madagascar',
+      availability: 'Open to opportunities',
+      connect: 'Connect',
+      linkedinLabel: 'LinkedIn Profile',
+      twitterLabel: 'Twitter / X',
+      achievements: 'Achievements',
+      achievementsLabels: {
+        earlyAdopter: 'Early Adopter',
+        starCreator: 'Star Creator',
+        hotStreak: 'Hot Streak',
+      },
+    },
     projects: {
       title: 'My Projects',
-      viewProject: 'View project',
-      viewCode: 'View code',
+      intro: 'Selection of delivered projects, with demo versions when available.',
+      badgeReal: 'Real projects',
+      badgeDemo: 'Demo',
+      linksPrivate: 'Private links / coming soon',
+      linkTooltips: {
+        live: 'View demo',
+        code: 'View code',
+      },
+      items: [
+        {
+          title: 'AppMed (Faculty of Medicine)',
+          description:
+            'Web platform for managing and sharing documents/resources, with a modern interface and internal modules.',
+          technologies: ['Laravel', 'Livewire', 'VueJs', 'Tailwind CSS', 'MySQL'],
+          links: [
+            { label: 'Demo', url: 'https://demo-epirc.gasycoder.com/', type: 'live' },
+            { label: 'Code', url: 'https://github.com/GasyCoder/demo1-appmed', type: 'github' },
+          ],
+        },
+        {
+          title: 'RSS Blog (Backend + Frontend)',
+          description:
+            'Mini blog powered by RSS feeds: Python backend for aggregation/normalization, Next.js frontend with SEO-friendly routes.',
+          technologies: ['Python', 'FastAPI', 'Next.js', 'TypeScript', 'RSS'],
+          links: [
+            { label: 'Code (Frontend)', url: 'https://github.com/GasyCoder/rss-blog-frontend', type: 'github' },
+            { label: 'Code (Backend)', url: 'https://github.com/GasyCoder/rss-blog-backend', type: 'github' },
+            { label: 'Demo', url: '#', type: 'live' },
+          ],
+        },
+        {
+          title: 'CHU Mahavoky Sud',
+          description: 'Web application for digitizing processes and content within the hospital.',
+          technologies: ['Laravel', 'Blade', 'MySQL'],
+          links: [
+            { label: 'Demo', url: '#', type: 'live' },
+            { label: 'Code', url: '#', type: 'github' },
+          ],
+        },
+        {
+          title: 'EDGVM',
+          description:
+            'Institutional site/platform: dynamic content, events, news, and public pages.',
+          technologies: ['Laravel', 'Vite', 'MySQL'],
+          links: [
+            { label: 'Demo', url: '#', type: 'live' },
+            { label: 'Code', url: '#', type: 'github' },
+          ],
+        },
+        {
+          title: 'E-Pirata',
+          description: 'Product-oriented platform with backend logic and APIs tailored to needs.',
+          technologies: ['Laravel', 'API', 'MySQL'],
+          links: [
+            { label: 'Demo', url: '#', type: 'live' },
+            { label: 'Code', url: '#', type: 'github' },
+          ],
+        },
+        {
+          title: 'Gestion Tina',
+          description: 'Internal management app (business CRUD) with a simple and efficient interface.',
+          technologies: ['Laravel', 'Livewire', 'MySQL'],
+          links: [
+            { label: 'Demo', url: '#', type: 'live' },
+            { label: 'Code', url: '#', type: 'github' },
+          ],
+        },
+        {
+          title: 'Labo CTB Nosy Be',
+          description: 'Lab management platform: documents, tracking, and workflow organization.',
+          technologies: ['Laravel', 'Livewire', 'MySQL'],
+          links: [
+            { label: 'Demo', url: '#', type: 'live' },
+            { label: 'Code', url: '#', type: 'github' },
+          ],
+        },
+        {
+          title: 'ProdCatTest',
+          description: 'Test/demo environment to validate modules, UI, and features before integration.',
+          technologies: ['Laravel', 'Vite', 'MySQL'],
+          links: [
+            { label: 'Demo', url: '#', type: 'live' },
+            { label: 'Code', url: '#', type: 'github' },
+          ],
+        },
+      ],
     },
     skills: {
       title: 'Skills & Technologies',
@@ -82,15 +410,57 @@ export const translations = {
       backend: 'Backend',
       tools: 'Tools',
       other: 'Other',
+      otherTitle: 'Other Technologies',
+      otherDescription: 'Curated tools and platforms I enjoy using on projects.',
+      categories: [
+        {
+          title: 'Frontend',
+          skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Vue.js'],
+        },
+        {
+          title: 'Backend',
+          skills: ['Node.js', 'Express', 'MongoDB', 'PostgreSQL', 'GraphQL'],
+        },
+        {
+          title: 'Tools',
+          skills: ['Git', 'Docker', 'VS Code', 'Figma', 'Postman'],
+        },
+        {
+          title: 'Other',
+          skills: ['REST API', 'Responsive Design', 'UI/UX', 'Agile/Scrum', 'Testing'],
+        },
+      ],
+      otherTech: [
+        'HTML5',
+        'CSS3',
+        'JavaScript',
+        'Sass',
+        'Redux',
+        'Next Auth',
+        'Prisma',
+        'Jest',
+        'Cypress',
+        'Webpack',
+        'Vite',
+        'NPM',
+        'Yarn',
+      ],
     },
     contact: {
       title: 'Contact Me',
-      description: 'Feel free to reach out to discuss your projects',
+      description: "Let's discuss your project",
+      availability: 'Available for collaborations, freelance missions, or full-time roles.',
       name: 'Name',
       email: 'Email',
       message: 'Message',
       send: 'Send',
       sending: 'Sending...',
+      whatsappLabel: 'WhatsApp',
+      whatsappAria: 'Contact via WhatsApp',
+      socialTitle: 'Social',
+      responseTime: 'Response time: 24–48h',
+      footerAvailability: 'Available for projects',
+      whatsappMessage: 'Hello Florent, I saw your portfolio and I would like to discuss a project.',
     },
     footer: {
       rights: 'All rights reserved',
