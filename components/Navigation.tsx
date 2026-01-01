@@ -14,12 +14,12 @@ export default function Navigation() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo/Brand */}
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-sky-500 text-white">
-              GF
-            </div>
+          <div className="flex h-10 w-10 items-center justify-center text-xl" aria-label="Developer">
+            🧑‍💻
+          </div>
             <div>
-              <p className="text-sm font-semibold text-slate-900 dark:text-white">GasyCoder</p>
-              <p className="text-xs text-slate-500 dark:text-slate-400">Backend & Fullstack</p>
+              <p className="text-sm font-semibold text-slate-900 dark:text-white">Florent BEZARA</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400">Founder of GasyCoder</p>
             </div>
           </div>
 
