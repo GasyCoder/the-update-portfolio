@@ -20,10 +20,62 @@ interface ProjectsProps {
   isLoading?: boolean;
 }
 
+const isRecord = (value: unknown): value is Record<string, unknown> =>
+  typeof value === 'object' && value !== null;
+
+const normalizeString = (value: unknown, fallback = ''): string =>
+  typeof value === 'string' ? value : fallback;
+
+const normalizeStringArray = (value: unknown): string[] =>
+  Array.isArray(value) ? value.filter((item): item is string => typeof item === 'string') : [];
+
+const normalizeLinks = (value: unknown): ProjectLink[] => {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value
+    .map((entry) => {
+      if (!isRecord(entry)) {
+        return null;
+      }
+
+      const type = entry.type === 'github' || entry.type === 'live' ? entry.type : 'live';
+
+      return {
+        label: normalizeString(entry.label),
+        url: normalizeString(entry.url, '#'),
+        type,
+      };
+    })
+    .filter((entry): entry is ProjectLink => entry !== null);
+};
+
+const normalizeProjects = (value: unknown): Project[] => {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value
+    .map((entry) => {
+      if (!isRecord(entry)) {
+        return null;
+      }
+
+      return {
+        title: normalizeString(entry.title),
+        description: normalizeString(entry.description),
+        technologies: normalizeStringArray(entry.technologies),
+        links: normalizeLinks(entry.links),
+      };
+    })
+    .filter((entry): entry is Project => entry !== null);
+};
+
 export default function Projects({ isLoading }: ProjectsProps) {
   const { t } = useLanguage();
 
-  const projects: Project[] = t.projects.items;
+  const projects = normalizeProjects(t?.projects?.items);
 
   const isRealLink = (url?: string) => !!url && url !== '#';
 
