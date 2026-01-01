@@ -3,17 +3,19 @@
 import { useLanguage } from '@/lib/LanguageContext';
 import { ArrowUpRight, ExternalLink, Github, Sparkles } from 'lucide-react';
 
+type ProjectLinkType = 'live' | 'github';
+
 type ProjectLink = {
   label: string;
   url: string; // use '#' to disable
-  type: 'live' | 'github';
+  type: ProjectLinkType;
 };
 
 interface Project {
   title: string;
   description: string;
   technologies: string[];
-  links?: ProjectLink[];
+  links: ProjectLink[];
 }
 
 interface ProjectsProps {
@@ -29,6 +31,8 @@ const normalizeString = (value: unknown, fallback = ''): string =>
 const normalizeStringArray = (value: unknown): string[] =>
   Array.isArray(value) ? value.filter((item): item is string => typeof item === 'string') : [];
 
+const normalizeLinkType = (value: unknown): ProjectLinkType => (value === 'github' ? 'github' : 'live');
+
 const normalizeLinks = (value: unknown): ProjectLink[] => {
   if (!Array.isArray(value)) {
     return [];
@@ -40,12 +44,10 @@ const normalizeLinks = (value: unknown): ProjectLink[] => {
         return null;
       }
 
-      const type = entry.type === 'github' || entry.type === 'live' ? entry.type : 'live';
-
       return {
         label: normalizeString(entry.label),
         url: normalizeString(entry.url, '#'),
-        type,
+        type: normalizeLinkType(entry.type),
       };
     })
     .filter((entry): entry is ProjectLink => entry !== null);
@@ -169,7 +171,7 @@ export default function Projects({ isLoading }: ProjectsProps) {
 
       <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2">
         {projects.map((project, index) => {
-          const hasDemo = project.links?.some((l) => l.type === 'live' && isRealLink(l.url)) ?? false;
+          const hasDemo = project.links.some((l) => l.type === 'live' && isRealLink(l.url));
 
           return (
             <article
@@ -216,11 +218,11 @@ export default function Projects({ isLoading }: ProjectsProps) {
                 </div>
 
                 <footer className="mt-auto flex flex-wrap gap-2 pt-1">
-                  {project.links?.map((link, i) => (
+                  {project.links.map((link, i) => (
                     <LinkButton key={`${link.type}-${i}`} link={link} />
                   ))}
 
-                  {project.links?.some((l) => !isRealLink(l.url)) && (
+                  {project.links.some((l) => !isRealLink(l.url)) && (
                     <span className="ml-auto inline-flex items-center rounded-lg border border-slate-200/70 bg-white/50 px-3 py-2 text-xs font-semibold text-slate-500 dark:border-white/10 dark:bg-white/5 dark:text-slate-400">
                       {t.projects.linksPrivate}
                     </span>
