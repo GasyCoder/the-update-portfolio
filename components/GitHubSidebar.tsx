@@ -84,7 +84,7 @@ export default function GitHubSidebar({ isLoading }: GitHubSidebarProps) {
         </div>
 
         {/* Status Badge */}
-        <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200/70 bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-700 transition-all duration-200 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-100">
+        <div className="flex items-center  justify-center items-center gap-2 rounded-full border border-emerald-200/70 bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-700 transition-all duration-200 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-100">
           <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
           <span>Open to opportunities</span>
         </div>
@@ -115,7 +115,7 @@ export default function GitHubSidebar({ isLoading }: GitHubSidebarProps) {
               <span className="truncate">github.com/GasyCoder</span>
             </a>
             <a
-              href="https://linkedin.com/in/gasycoder"
+              href="https://www.linkedin.com/in/florentbezara/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 rounded-lg border border-slate-200/60 bg-white/80 px-3 py-2 text-xs font-medium text-slate-700 transition-all hover:-translate-y-0.5 hover:border-indigo-200 hover:text-indigo-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-200 dark:hover:border-indigo-500/40"
@@ -124,7 +124,7 @@ export default function GitHubSidebar({ isLoading }: GitHubSidebarProps) {
               <span>LinkedIn Profile</span>
             </a>
             <a
-              href="https://twitter.com/gasycoder"
+              href="https://x.com/Florent_bezara"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 rounded-lg border border-slate-200/60 bg-white/80 px-3 py-2 text-xs font-medium text-slate-700 transition-all hover:-translate-y-0.5 hover:border-indigo-200 hover:text-indigo-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-200 dark:hover:border-indigo-500/40"
