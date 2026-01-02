@@ -4,7 +4,7 @@ import { useLanguage } from '@/lib/LanguageContext';
 import { Monitor, Server, Sparkles, Wrench } from 'lucide-react';
 
 interface SkillCategory {
-  key: 'frontend' | 'backend' | 'tools';
+  key: string;
   title: string;
   description: string;
   skills: string[];
