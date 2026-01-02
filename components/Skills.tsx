@@ -92,7 +92,7 @@ export default function Skills({ isLoading }: SkillsProps) {
         </div>
       </div>
 
-      <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
+      <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
         {skillCategories.map((category) => {
           const styles = categoryStyles[category.key] ?? categoryStyles.frontend;
           const Icon = categoryIcons[category.key] ?? Monitor;
