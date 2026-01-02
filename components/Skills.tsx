@@ -3,8 +3,37 @@
 import { useLanguage } from '@/lib/LanguageContext';
 import { Monitor, Server, Sparkles, Wrench } from 'lucide-react';
 
+const categoryStyles = {
+  frontend: {
+    card: 'from-sky-500/10 via-white/90 to-white/60 dark:from-sky-500/15 dark:via-white/10 dark:to-slate-900/80',
+    icon: 'bg-sky-500/10 text-sky-600 dark:bg-sky-500/20 dark:text-sky-200',
+    chip: 'border-sky-200/70 text-sky-700 dark:border-sky-500/30 dark:text-sky-100',
+    glow: 'shadow-[0_0_0_1px_rgba(56,189,248,0.2)]',
+  },
+  backend: {
+    card: 'from-emerald-500/10 via-white/90 to-white/60 dark:from-emerald-500/15 dark:via-white/10 dark:to-slate-900/80',
+    icon: 'bg-emerald-500/10 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-200',
+    chip: 'border-emerald-200/70 text-emerald-700 dark:border-emerald-500/30 dark:text-emerald-100',
+    glow: 'shadow-[0_0_0_1px_rgba(16,185,129,0.2)]',
+  },
+  tools: {
+    card: 'from-indigo-500/10 via-white/90 to-white/60 dark:from-indigo-500/15 dark:via-white/10 dark:to-slate-900/80',
+    icon: 'bg-indigo-500/10 text-indigo-700 dark:bg-indigo-500/20 dark:text-indigo-200',
+    chip: 'border-indigo-200/70 text-indigo-700 dark:border-indigo-500/30 dark:text-indigo-100',
+    glow: 'shadow-[0_0_0_1px_rgba(99,102,241,0.2)]',
+  },
+} as const;
+
+const categoryIcons = {
+  frontend: Monitor,
+  backend: Server,
+  tools: Wrench,
+} as const;
+
+type CategoryKey = keyof typeof categoryStyles;
+
 interface SkillCategory {
-  key: string;
+  key: CategoryKey;
   title: string;
   description: string;
   skills: string[];
@@ -17,36 +46,9 @@ interface SkillsProps {
 export default function Skills({ isLoading }: SkillsProps) {
   const { t } = useLanguage();
 
-  const skillCategories: SkillCategory[] = t.skills.categories;
+  const skillCategories = t.skills.categories as SkillCategory[];
 
   const otherTech = t.skills.otherTech;
-
-  const categoryStyles = {
-    frontend: {
-      card: 'from-sky-500/10 via-white/90 to-white/60 dark:from-sky-500/15 dark:via-white/10 dark:to-slate-900/80',
-      icon: 'bg-sky-500/10 text-sky-600 dark:bg-sky-500/20 dark:text-sky-200',
-      chip: 'border-sky-200/70 text-sky-700 dark:border-sky-500/30 dark:text-sky-100',
-      glow: 'shadow-[0_0_0_1px_rgba(56,189,248,0.2)]',
-    },
-    backend: {
-      card: 'from-emerald-500/10 via-white/90 to-white/60 dark:from-emerald-500/15 dark:via-white/10 dark:to-slate-900/80',
-      icon: 'bg-emerald-500/10 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-200',
-      chip: 'border-emerald-200/70 text-emerald-700 dark:border-emerald-500/30 dark:text-emerald-100',
-      glow: 'shadow-[0_0_0_1px_rgba(16,185,129,0.2)]',
-    },
-    tools: {
-      card: 'from-indigo-500/10 via-white/90 to-white/60 dark:from-indigo-500/15 dark:via-white/10 dark:to-slate-900/80',
-      icon: 'bg-indigo-500/10 text-indigo-700 dark:bg-indigo-500/20 dark:text-indigo-200',
-      chip: 'border-indigo-200/70 text-indigo-700 dark:border-indigo-500/30 dark:text-indigo-100',
-      glow: 'shadow-[0_0_0_1px_rgba(99,102,241,0.2)]',
-    },
-  } as const;
-
-  const categoryIcons = {
-    frontend: Monitor,
-    backend: Server,
-    tools: Wrench,
-  } as const;
 
   if (isLoading) {
     return (
@@ -90,7 +92,7 @@ export default function Skills({ isLoading }: SkillsProps) {
         </div>
       </div>
 
-      <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
+      <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
         {skillCategories.map((category) => {
           const styles = categoryStyles[category.key] ?? categoryStyles.frontend;
           const Icon = categoryIcons[category.key] ?? Monitor;
