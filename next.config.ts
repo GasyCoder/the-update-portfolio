@@ -10,7 +10,7 @@ export default process.env.NODE_ENV === "development"
   ? nextConfig
   : withPWA({
       dest: "public",
-      disable: process.env.NODE_ENV === "development",
+      disable: (process.env.NODE_ENV as string) === "development",
       register: true,
       scope: "/",
       sw: "sw.js",
