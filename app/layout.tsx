@@ -6,6 +6,14 @@ import { LanguageProvider } from '@/lib/LanguageContext';
 export const metadata: Metadata = {
   title: 'GasyCoder - Full Stack Developer Portfolio',
   description: 'Modern and futuristic portfolio showcasing web development projects and skills',
+  manifest: '/manifest.webmanifest',
+};
+
+export const viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#000000' },
+  ],
 };
 
 export default function RootLayout({
