@@ -6,7 +6,7 @@ import { LanguageProvider } from '@/lib/LanguageContext';
 export const metadata: Metadata = {
   title: 'GasyCoder - Full Stack Developer Portfolio',
   description: 'Modern and futuristic portfolio showcasing web development projects and skills',
-  manifest: '/manifest.webmanifest',
+  manifest: '/manifest.json',
 };
 
 export const viewport = {
